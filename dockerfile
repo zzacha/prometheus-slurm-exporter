@@ -1,5 +1,5 @@
 # Build stage: install dependencies and mock tools
-FROM golang:1.15 AS builder
+FROM golang:1.17 AS builder
 # Install make
 RUN apt-get update && \
     apt-get install -y make slurm-client
@@ -30,7 +30,7 @@ COPY . .
 RUN make
 
 # Final stage
-FROM debian:stable-slim
+FROM scratch
 
 # Set up environment variables
 ENV SLURM_EXPORTER_PORT=8080

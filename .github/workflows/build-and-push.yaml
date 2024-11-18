@@ -31,4 +31,6 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: quay.io/zizac/prometheus-slurm-exporter:latest
+          tags: |
+            quay.io/zizac/prometheus-slurm-exporter:latest
+            quay.io/zizac/prometheus-slurm-exporter:${{ github.sha }}
