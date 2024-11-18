@@ -34,7 +34,7 @@ RUN make
 RUN ldd /app/bin/prometheus-slurm-exporter || echo "Static binary or ldd not found"
 
 # Final stage
-FROM gcr.io/distroless/static-debian12
+FROM debian:stable-slim
 
 # Set up environment variables
 ENV SLURM_EXPORTER_PORT=8080
