@@ -18,7 +18,10 @@ RUN printf '#!/bin/sh\n\necho "100/200/50/350"\n' > /usr/local/bin/sinfo && \
     chmod +x /usr/local/bin/sdiag
 
 # Set up environment variables for Go
-ENV GO111MODULE=on
+ENV GO111MODULE=on \
+    CGO_ENABLED=0 \
+    GOOS=linux \
+    GOARCH=amd64
 
 # Set the working directory inside the container
 WORKDIR /app
