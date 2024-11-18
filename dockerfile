@@ -31,9 +31,10 @@ COPY . .
 
 # Build the application binary using the Makefile
 RUN make
+RUN ldd /app/bin/prometheus-slurm-exporter || echo "Static binary or ldd not found"
 
 # Final stage
-FROM scratch
+FROM alpine:latest
 
 # Set up environment variables
 ENV SLURM_EXPORTER_PORT=8080
