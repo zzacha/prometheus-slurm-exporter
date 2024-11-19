@@ -1,5 +1,5 @@
 # Build stage: install dependencies and mock tools
-FROM golang:1.17 AS builder
+FROM golang:1.23 AS builder
 # Install make
 RUN apt-get update && \
     apt-get install -y make slurm-client
