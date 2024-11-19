@@ -38,7 +38,7 @@ RUN ldd /app/bin/prometheus-slurm-exporter || echo "Static binary or ldd not fou
 
 # Final stage
 # FROM gcr.io/distroless/base
-FROM registry.access.redhat.com/ubi9/ubi-init
+FROM registry.access.redhat.com/ubi9/ubi-micro
 
 # Set up environment variables
 ENV SLURM_EXPORTER_PORT=8080
