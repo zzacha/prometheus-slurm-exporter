@@ -2,8 +2,8 @@
 FROM image-registry.openshift-image-registry.svc:5000/openshift/golang:latest AS builder
 
 # Install make
-RUN apt-get update && \
-    apt-get install -y make slurm-client
+# RUN apt-get update && \
+#     apt-get install -y make slurm-client
 
 # Minimal Slurm configuration to allow `sinfo` to run
 RUN mkdir -p /etc/slurm-llnl && \
