@@ -37,7 +37,6 @@ RUN make
 RUN ldd /app/bin/prometheus-slurm-exporter || echo "Static binary or ldd not found"
 
 # Final stage
-# FROM gcr.io/distroless/base
 FROM registry.access.redhat.com/ubi9/ubi-micro
 
 # Set up environment variables
