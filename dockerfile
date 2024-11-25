@@ -1,5 +1,6 @@
 # Build stage: install dependencies and mock tools
-FROM golang:1.23 AS builder
+FROM image-registry.openshift-image-registry.svc:5000/openshift/golang:latest AS builder
+
 # Install make
 RUN apt-get update && \
     apt-get install -y make slurm-client
@@ -37,8 +38,7 @@ RUN make
 RUN ldd /app/bin/prometheus-slurm-exporter || echo "Static binary or ldd not found"
 
 # Final stage
-# FROM gcr.io/distroless/base
-FROM registry.access.redhat.com/ubi9/ubi-micro
+FROM image-registry.openshift-image-registry.svc:5000/openshift/ubi9-micro:latest
 
 # Set up environment variables
 ENV SLURM_EXPORTER_PORT=8080
