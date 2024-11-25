@@ -1,6 +1,6 @@
 # Build stage: install dependencies and mock tools
 FROM image-registry.openshift-image-registry.svc:5000/openshift/golang:latest AS builder
-
+USER root
 # Install make
 # RUN apt-get update && \
 #     apt-get install -y make slurm-client
