@@ -22,7 +22,8 @@ RUN printf '#!/bin/sh\n\necho "100/200/50/350"\n' > /usr/local/bin/sinfo && \
 ENV GO111MODULE=on \
     CGO_ENABLED=0 \
     GOOS=linux \
-    GOARCH=amd64
+    GOARCH=amd64 \
+    GOPROXY=direct
 
 # Set the working directory inside the container
 WORKDIR /app
