@@ -18,6 +18,7 @@ package main
 import (
 	"io/ioutil"
 	"os"
+	"os/exec"
 	"testing"
 )
 
@@ -32,5 +33,16 @@ func TestCPUsMetrics(t *testing.T) {
 }
 
 func TestCPUssGetMetrics(t *testing.T) {
-	t.Logf("%+v", CPUsGetMetrics())
+	// Check if `sinfo` is available in the environment
+	if _, err := exec.LookPath("sinfo"); err != nil {
+		t.Skip("Skipping TestCPUssGetMetrics: `sinfo` command not available")
+	}
+
+	// Run the actual test if `sinfo` is available
+	metrics := CPUsGetMetrics()
+	if metrics == nil {
+		t.Fatalf("Expected metrics, but got nil")
+	}
+
+	t.Logf("Metrics: %+v", metrics)
 }
