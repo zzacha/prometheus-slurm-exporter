@@ -60,8 +60,8 @@ func main() {
 
 	// The Handler function provides a default handler to expose metrics
 	// via an HTTP server. "/metrics" is the usual endpoint for that.
-	log.Println("Starting Server: %s", *listenAddress)
-	log.Println("GPUs Accounting: %t", *gpuAcct)
+	log.Printf("Starting Server: %s", *listenAddress)
+	log.Printf("GPUs Accounting: %t", *gpuAcct)
 	http.Handle("/metrics", promhttp.Handler())
 	log.Fatal(http.ListenAndServe(*listenAddress, nil))
 }
