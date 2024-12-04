@@ -1,6 +1,6 @@
 module prometheus-slurm-exporter
 
-go 1.17 //latest go version avail at OCP az uks
+go 1.23 //latest go version avail at OCP az uks
 
 require (
 	// github.com/prometheus/client_golang v1.20.5
