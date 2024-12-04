@@ -8,6 +8,8 @@ require (
 	// github.com/stretchr/testify v1.9.0
 	github.com/prometheus/client_golang v1.14.0 // latest supporter for go v1.17
 	github.com/stretchr/testify v1.10.0
+	google.golang.org/protobuf v1.33.0 // CVE-2024-24786
+
 )
 
 require (
@@ -21,6 +23,5 @@ require (
 	github.com/prometheus/common v0.37.0 // indirect
 	github.com/prometheus/procfs v0.8.0 // indirect
 	golang.org/x/sys v0.0.0-20220520151302-bc2c85ada10a // indirect
-	google.golang.org/protobuf v1.28.1 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
