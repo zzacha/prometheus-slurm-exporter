@@ -1,14 +1,11 @@
 module prometheus-slurm-exporter
 
-go 1.17 //latest go version avail at OCP az uks
+go 1.17 //latest go version avail on OCPv4.12 az uks
 
 require (
-	// github.com/prometheus/client_golang v1.20.5
-	// github.com/prometheus/common v0.26.0
-	// github.com/stretchr/testify v1.9.0
-	github.com/prometheus/client_golang v1.14.0 // latest supporter for go v1.17
+	github.com/prometheus/client_golang v1.14.0 // latest supported for go v1.17
 	github.com/stretchr/testify v1.10.0
-	google.golang.org/protobuf v1.33.0 // CVE-2024-24786
+	google.golang.org/protobuf v1.33.0 // indirect; Addressed CVE-2024-24786
 
 )
 
