@@ -4,7 +4,8 @@ on:
   workflow_dispatch:  #  manual triggering of the workflow
   push:
     branches:
-      - add-dockerfile 
+      - add-dockerfile
+      - ocp-az-uks 
 
 jobs:
   build:
