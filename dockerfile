@@ -1,5 +1,5 @@
 # Build stage: install dependencies and mock tools
-FROM image-registry.openshift-image-registry.svc:5000/openshift/golang:latest AS builder
+FROM golang:latest AS builder
 USER root
 # Install make
 # RUN apt-get update && \
@@ -40,7 +40,7 @@ RUN make
 RUN ldd /app/bin/prometheus-slurm-exporter || echo "Static binary or ldd not found"
 
 # Final stage
-FROM image-registry.openshift-image-registry.svc:5000/openshift/ubi9-micro:latest
+FROM registry.access.redhat.com/ubi9/ubi-micro
 
 # Set up environment variables
 ENV SLURM_EXPORTER_PORT=8080
